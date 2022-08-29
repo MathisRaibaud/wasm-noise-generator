@@ -23,7 +23,10 @@ emcc \
     -s SINGLE_FILE=1 \
     -s WASM=1 \
     -s WASM_ASYNC_COMPILATION=0 \
-    -s ENVIRONMENT=shell \
+    -s INITIAL_MEMORY=128MB \
+    -s ENVIRONMENT=web,worker,audioworklet \
+    -s USE_PTHREADS=1 \
+    -pthread \
     -Wl,--whole-archive $build_dir/libNoiseGenerator.a -Wl,--no-whole-archive \
     -o $js_dir/worklet/NoiseGenerator.wasmmodule.js \
 

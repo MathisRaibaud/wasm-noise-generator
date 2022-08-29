@@ -1,7 +1,15 @@
 #include <NoiseGenerator/NoiseGenerator.h>
 #include <algorithm>
+#include <thread>
+#include <iostream>
 
-NoiseGenerator::NoiseGenerator(): gain_(0.0f) {}
+NoiseGenerator::NoiseGenerator(): gain_(0.0f) {
+    std::thread thread([&]() {
+        // std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::cout << "Inside the thread: " << std::endl;
+    });
+    thread.join();
+}
 
 void NoiseGenerator::getNextAudioBlock(uintptr_t output_ptr_left, uintptr_t output_ptr_right, int nb_frames) const 
 {

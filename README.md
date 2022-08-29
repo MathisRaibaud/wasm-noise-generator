@@ -12,17 +12,16 @@ To build this project, you need to have the following tools installed:
 
 ## How to build and run?
 
-Run the build script with:
+Activate emscripten in your current terminal:
 
 ```bash
+# Activate emscripten in the current terminal
+source path/to/emscripten/emsdk_env.sh
+
+# Compile the C++ library with emscripten and creates the WebAssembly module of the C++ library.
 ./scripts/build.sh
-```
 
-It compiles the C++ library with emscripten and creates the WebAssembly module of the C++ library.
-
-Then, to launch in the browser, run:
-
-```bash
+# Launch the demo in the browser
 emrun js/index.html --browser chrome
 ```
 
